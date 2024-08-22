@@ -135,8 +135,8 @@ int Buscador_base_ext(int vector_2_base_ext[], int N){
 
 
 int main(){
-	int N=3; //Numero de particulas
-	int M=8; //Numeros de sitios
+	int N=2; //Numero de particulas
+	int M=3; //Numeros de sitios
 	//N=2 y M=10
 	//Parametros del Hamiltoniano
 	double J=0.01;
@@ -456,6 +456,13 @@ int main(){
 			
 		////MATRIZ DE DENSIDAD REDUCIDA EN LA BASE EXTENDIAD///////
 		//Revisamos cada uno de los elemtnos de la base extendida |n_{\nu}^{i},n_{\mu}^{i}><n_{\nu}^{j},n_{\mu}^{j}|
+
+		for(int i = 0; i<D_exted; i++){ 
+			for(int j = 0; j<D_exted; j++){
+				Rho_C_reducida(i,j)=0;
+				Rho_C_trans_parcial(i,j)=0;
+			}
+		}
 		for(int i=0; i<D_exted; i++){
 			for(int j=0; j<D_exted; j++){
 				//cout<<"Indices "<<i<<","<<j<<endl;
@@ -483,7 +490,7 @@ int main(){
 			        		}
 			        		NOSE[n_nu]=base_2_extendida[j][0];
 			        		NOSE[n_mu]=base_2_extendida[j][1];
-			        		Rho_C_reducida(i,j)=Rho_C(Buscador(base,N,M),Buscador(NOSE,N,M));
+			        		Rho_C_reducida(i,j)+=Rho_C(Buscador(base,N,M),Buscador(NOSE,N,M));
 						}
 					}
 				}

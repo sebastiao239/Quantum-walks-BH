@@ -157,7 +157,7 @@ int index_periodica(int index, int M){
 */
 
 int main(){
-	base_fock(2,10);
+	base_fock(6,3);
 	//base_fock(5,3); //Problemas con uno de menos celi
 	//base_fock(3,7); //Problemas con tener uno de más
 	//base_fock(3,7); //Problemas // N,M
